@@ -23,7 +23,7 @@ public class DigitalPetService {
     public DigitalPetModel getPetById(Long id){
         Optional<DigitalPetModel> searchResult = digitalPetRepository.findById(id);
         if(searchResult.isEmpty()){
-            throw new DigitalPetNotFoundException("Digital " + id + " not found");
+            throw new DigitalPetNotFoundException("Digital Pet " + id + " not found");
         }
         return searchResult.get();
     }

@@ -29,7 +29,7 @@ public class DigitalPetController {
         try{
             return ResponseEntity.ok(digitalPetService.getPetById(id));
         } catch (DigitalPetNotFoundException e) {
-            return new ResponseEntity(new DigitalPetResponse(null, e.getMessage()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new DigitalPetResponse(null, e.getMessage()), HttpStatus.NOT_FOUND);
         }
     }
     @PostMapping
@@ -51,6 +51,6 @@ public class DigitalPetController {
     @DeleteMapping("{id}")
     public ResponseEntity<DigitalPetResponse> deletePet(@PathVariable Long id){
         digitalPetService.deleteDigitalPet(id);
-        return ResponseEntity.ok(new DigitalPetResponse(null, "Pet " + id + " was delted"));
+        return ResponseEntity.ok(new DigitalPetResponse(null, "Pet " + id + " was deleted."));
     }
 }
